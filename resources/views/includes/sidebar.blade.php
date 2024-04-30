@@ -20,30 +20,9 @@
                 </li>
                 <li class="nav-header font-weight-bold">Main</li>
                 <li class="nav-item">
-                    <a href="/data-kerawanan" class="nav-link {{ Request::is('data-kerawanan') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>Data Kerawanan</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/pengawasan-pelaksanaan-tugas"
-                        class="nav-link {{ Request::is('pengawasan-pelaksanaan-tugas') ? 'active' : '' }}">
-                        <i class="nav-icon fa  fa-exclamation-triangle"></i>
-                        <p>Pengawasan Tugas</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/pendampingan-pemeriksaan-fisik"
-                        class="nav-link {{ Request::is('pendampingan-pemeriksaan-fisik') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-medkit"></i>
-                        <p>Pemeriksaan Fisik</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/pemantauan-kegiatan-internal"
-                        class="nav-link {{ Request::is('pemantauan-kegiatan-internal') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-eye"></i>
-                        <p>Pemantauan Kegiatan</p>
+                    <a href="/barang" class="nav-link {{ Request::is('barang') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-box"></i>
+                        <p>Barang</p>
                     </a>
                 </li>
                 <li class="nav-header font-weight-bold">Setup</li>
