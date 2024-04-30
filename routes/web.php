@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 // AUTH
 Route::get('/login', [AuthController::class, 'index'])
@@ -16,3 +17,4 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 // DASHBOARD
 Route::resource('/', DashboardController::class)->middleware('auth');
+Route::resource('/user', UserController::class)->middleware('auth');

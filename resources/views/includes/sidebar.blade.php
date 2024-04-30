@@ -48,9 +48,9 @@
                 </li>
                 <li class="nav-header font-weight-bold">Setup</li>
                 <li class="nav-item">
-                    <a href="/pegawai" class="nav-link {{ Request::is('pegawai') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user-md"></i>
-                        <p>Pegawai Kantor</p>
+                    <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Users</p>
                     </a>
                 </li>
                 {{-- @if (request()->session()->get('user')['role'] === 'Superuser')
