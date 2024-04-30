@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 
+use App\Http\Controllers\DashboardController;
+
+// AUTH
 Route::get('/login', [AuthController::class, 'index'])
     ->name('login')
     ->middleware('guest');
@@ -11,6 +14,5 @@ Route::post('/login', [AuthController::class, 'authenticate'])->middleware('gues
 
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// DASHBOARD
+Route::resource('/', DashboardController::class)->middleware('auth');
