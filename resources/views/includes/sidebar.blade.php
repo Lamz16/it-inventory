@@ -20,6 +20,24 @@
                 </li>
                 <li class="nav-header font-weight-bold">Main</li>
                 <li class="nav-item">
+                    <a href="/purchase-order" class="nav-link {{ Request::is('purchase-order') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-invoice"></i>
+                        <p>Purchase Order</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/delivery-order" class="nav-link {{ Request::is('delivery-order') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Delivery Order</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/invoice" class="nav-link {{ Request::is('invoice') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                        <p>Invoice</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/item" class="nav-link {{ Request::is('item') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-box"></i>
                         <p>Goods</p>
