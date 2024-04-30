@@ -52,6 +52,7 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $data = $request->all();
+
         if ($data['password'] == '') {
             unset($data['password']);
         } else {
@@ -59,6 +60,21 @@ class UserController extends Controller
         }
 
         $item = User::findOrFail($id);
+
+        if ($item->email != $data['email']) {
+            $check_email = User::where('email', $data['email'])->first();
+            if ($check_email) {
+                return redirect()->back()->with('error', 'Email sudah terdaftar');
+            }
+        }
+
+        if ($item->username != $data['username']) {
+            $check_username = User::where('username', $data['username'])->first();
+            if ($check_username) {
+                return redirect()->back()->with('error', 'Username sudah terdaftar');
+            }
+        }
+
         $item->update($data);
         return redirect()->route('user.index')->with('success', 'Data berhasil diubah');
     }
@@ -68,6 +84,8 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = User::findOrFail($id);
+        $item->delete();
+        return redirect()->route('user.index')->with('success', 'Data berhasil dihapus');
     }
 }
