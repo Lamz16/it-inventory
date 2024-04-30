@@ -20,9 +20,9 @@
                 </li>
                 <li class="nav-header font-weight-bold">Main</li>
                 <li class="nav-item">
-                    <a href="/barang" class="nav-link {{ Request::is('barang') ? 'active' : '' }}">
+                    <a href="/item" class="nav-link {{ Request::is('item') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-box"></i>
-                        <p>Barang</p>
+                        <p>Goods</p>
                     </a>
                 </li>
                 <li class="nav-header font-weight-bold">Setup</li>

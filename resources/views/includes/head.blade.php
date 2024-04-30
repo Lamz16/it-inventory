@@ -1,7 +1,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sipetir - Sistem Informasi Pemetaan Titik Rawan dan Penegakan Kepatuhan Internal</title>
+    <title>
+        IT INVENTORY | Stock Management System
+    </title>
 
     {{-- <link rel="icon" href="{{ url('/logo.png') }}" type="image/icon"> --}}
 
