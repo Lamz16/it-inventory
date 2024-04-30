@@ -18,6 +18,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/item" class="nav-link {{ Request::is('item') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-box"></i>
+                        <p>Goods</p>
+                    </a>
+                </li>
                 <li class="nav-header font-weight-bold">Main</li>
                 <li class="nav-item">
                     <a href="/purchase-order" class="nav-link {{ Request::is('purchase-order') ? 'active' : '' }}">
@@ -31,18 +37,12 @@
                         <p>Delivery Order</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="/invoice" class="nav-link {{ Request::is('invoice') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file-invoice-dollar"></i>
                         <p>Invoice</p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/item" class="nav-link {{ Request::is('item') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-box"></i>
-                        <p>Goods</p>
-                    </a>
-                </li>
+                </li> --}}
                 <li class="nav-header font-weight-bold">Setup</li>
                 <li class="nav-item">
                     <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
