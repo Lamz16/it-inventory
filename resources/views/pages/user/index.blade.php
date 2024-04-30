@@ -24,7 +24,7 @@
                             @include('pages.user.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
-                                    <tr style="vertical-align: middle-center; text-align: center;">
+                                    <tr>
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Email</th>
@@ -38,7 +38,7 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td style="vertical-align: middle-center; text-align: center;">
+                                            <td>
                                                 {{ $i }}
                                             </td>
                                             <td>{{ $item->name }}</td>
@@ -46,7 +46,7 @@
                                             <td>{{ $item->username }}</td>
                                             <td>{{ $item->birthdate }}</td>
                                             <td>{{ $item->role }}</td>
-                                            <td style="vertical-align: middle-center; text-align: center;">
+                                            <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('user.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">

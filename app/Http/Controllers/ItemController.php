@@ -20,4 +20,17 @@ class ItemController extends Controller
             'items' => $items,
         ]);
     }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        $data['stock'] = 0;
+
+        Item::create($data);
+
+        return redirect()->route('item.index')->with('success', 'Successfully added item');
+    }
 }

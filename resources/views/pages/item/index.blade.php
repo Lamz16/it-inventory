@@ -24,13 +24,12 @@
                             @include('pages.item.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
-                                    <tr style="vertical-align: middle-center; text-align: center;">
+                                    <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Username</th>
-                                        <th>Birthdate</th>
-                                        <th>Level</th>
+                                        <th>Stock</th>
+                                        <th>Pcs</th>
+                                        <th>Price</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -38,15 +37,14 @@
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
-                                            <td style="vertical-align: middle-center; text-align: center;">
+                                            <td>
                                                 {{ $i }}
                                             </td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->birthdate }}</td>
-                                            <td>{{ $item->role }}</td>
-                                            <td style="vertical-align: middle-center; text-align: center;">
+                                            <td>{{ $item->stock }}</td>
+                                            <td>{{ $item->pcs }}</td>
+                                            <td>{{ $item->price }}</td>
+                                            <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('user.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
