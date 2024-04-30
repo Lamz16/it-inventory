@@ -29,6 +29,7 @@
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Username</th>
+                                        <th>Birthdate</th>
                                         <th>Level</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -43,6 +44,7 @@
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->username }}</td>
+                                            <td>{{ $item->birthdate }}</td>
                                             <td>{{ $item->role }}</td>
                                             <td style="vertical-align: middle-center; text-align: center;">
                                                 <form id="formDelete{{ $item->id }}"

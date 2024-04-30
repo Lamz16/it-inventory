@@ -31,26 +31,19 @@ class UserController extends Controller
         $data = $request->all();
         $data['password'] = Hash::make($request['password']);
 
-        var_dump($data);
+        $check_email = User::where('email', $data['email'])->first();
+        if ($check_email) {
+            return redirect()->back()->with('error', 'Email sudah terdaftar');
+        }
+
+        $check_username = User::where('username', $data['username'])->first();
+        if ($check_username) {
+            return redirect()->back()->with('error', 'Username sudah terdaftar');
+        }
+
         User::create($data);
 
         return redirect()->route('user.index')->with('success', 'Data berhasil ditambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
     }
 
     /**
@@ -58,7 +51,16 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        if ($data['password'] == '') {
+            unset($data['password']);
+        } else {
+            $data['password'] = Hash::make($data['password']);
+        }
+
+        $item = User::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('user.index')->with('success', 'Data berhasil diubah');
     }
 
     /**

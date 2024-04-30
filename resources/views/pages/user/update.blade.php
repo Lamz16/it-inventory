@@ -16,6 +16,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Masukan Full Name"
+                            name="name" required value="{{ $item->name }}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Birthdate</label>
+                        <input type="date" class="form-control" id="birthdate" placeholder="Masukan Tanggal Lahir"
+                            name="birthdate" value="{{ $item->birthdate }}" />
+                    </div>
+                    <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" class="form-control" id="email" placeholder="Masukan email address"
                             name="email" required value="{{ $item->email }}" />
@@ -31,11 +41,11 @@
                             placeholder="Masukan Password untuk update" name="password" />
                     </div>
                     <div class="form-group">
-                        <label for="level">Level</label>
-                        <select name="level" id="level" class="form-control" required>
-                            <option value="">-- Pilih Lokasi --</option>
+                        <label for="role">Role</label>
+                        <select name="role" id="role" class="form-control" required>
+                            <option value="">-- Role --</option>
                             @foreach ($list_level as $j)
-                                <option value="{{ $j }}" {{ $j == $item->level ? 'selected' : '' }}>
+                                <option value="{{ $j }}" {{ $j == $item->role ? 'selected' : '' }}>
                                     {{ $j }}
                                 </option>
                             @endforeach
