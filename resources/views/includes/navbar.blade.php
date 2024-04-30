@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand navbar-light bg-primary">
+<nav class="main-header navbar navbar-expand navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -11,12 +11,12 @@
         <li class="nav-item dropdown user user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <img src="https://ui-avatars.com/api/?name=Udin" class="user-image img-circle" alt="User Image">
-                <span class="hidden-xs text-white">Udin</span>
+                <span class="hidden-xs">Udin</span>
             </a>
             {{-- <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <img src="https://ui-avatars.com/api/?name={{ request()->session()->get('user')['name'] }}"
                     class="user-image img-circle" alt="User Image">
-                <span class="hidden-xs text-white">{{ request()->session()->get('user')['name'] }}</span>
+                <span class="hidden-xs">{{ request()->session()->get('user')['name'] }}</span>
             </a> --}}
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right border-0">
                 {{-- <a href="/changepass" class="dropdown-item">

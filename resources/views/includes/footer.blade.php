@@ -1,6 +1,6 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2023 -
-        Wira Priharto</strong>
+    <strong>Copyright &copy; 2024 -
+        L Azlan Rafar</strong>
     All rights reserved.
 </footer>
 

@@ -1,12 +1,14 @@
-<aside class="main-sidebar sidebar-light-primary ">
+<aside class="main-sidebar sidebar-dark-primary ">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
         {{-- <img src="{{ url('/logo.png') }}" alt="Logo" class="brand-image" /> --}}
-        <span class="brand-text text-poppins fw-medium">Sipetir.</span>
+        <span class="brand-text text-poppins fw-medium">
+            Dashboard
+        </span>
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar border-right">
+    <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
