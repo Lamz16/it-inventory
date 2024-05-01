@@ -3,8 +3,28 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Purchase Order</h1>
+                <div class="col-12">
+                    <h1 class="mb-2">
+                        Purchase Order #00{{ $purchaseOrder->id }}
+                    </h1>
+
+                    <table>
+                        <tr>
+                            <td>Status</td>
+                            <td class="px-2">:</td>
+                            <td>@include('includes.badge', ['status' => $purchaseOrder->status])</td>
+                        </tr>
+                        <tr>
+                            <td>Date</td>
+                            <td class="px-2">:</td>
+                            <td>{{ $purchaseOrder->date }}</td>
+                        </tr>
+                        <tr>
+                            <td>Supplier</td>
+                            <td class="px-2">:</td>
+                            <td>{{ $purchaseOrder->supplier }}</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -19,41 +39,32 @@
                     <div class="card">
                         <div class="card-body">
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i> Tambah</a>
-                            @include('pages.purchase-order.create')
-
+                                    class="fa fa-plus"></i>
+                                Add Item
+                            </a>
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Date</th>
-                                        <th>Supplier</th>
-                                        <th>Status</th>
-                                        <th>Total Amount</th>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Stock</th>
+                                        <th>Pcs</th>
+                                        <th>Price</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                {{-- <tbody>
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>
-                                                <a href="{{ route('purchase-order.show', $item->id) }}">
-                                                    #00{{ $item->id }}
-                                                </a>
+                                                {{ $i }}
                                             </td>
-                                            <td>{{ $item->date }}</td>
-                                            <td>{{ $item->supplier }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->stock }}</td>
+                                            <td>{{ $item->pcs }}</td>
+                                            <td>{{ $item->price }}</td>
                                             <td>
-                                                @include('includes.badge', ['status' => $item->status])
-                                            </td>
-                                            <td>{{ $item->total_amount }}</td>
-                                            <td>
-                                                <a href="{{ route('purchase-order.show', $item->id) }}"
-                                                    class="btn btn-primary">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
-
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('user.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
@@ -86,7 +97,7 @@
                                         </tr>
                                         <?php $i++; ?>
                                     @endforeach
-                                </tbody>
+                                </tbody> --}}
                             </table>
                         </div>
                     </div>

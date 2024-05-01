@@ -33,15 +33,23 @@ class PurchaseOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $result = PurchaseOrder::create($data);
+
+        return redirect()->route('purchase-order.show', $result->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(PurchaseOrder $purchaseOrder)
+    public function show(string $id)
     {
-        //
+        $purchaseOrder = PurchaseOrder::find($id);
+
+        return view('pages.purchase-order.item.index', [
+            'purchaseOrder' => $purchaseOrder,
+        ]);
     }
 
     /**

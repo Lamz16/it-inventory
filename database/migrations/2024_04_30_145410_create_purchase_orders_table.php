@@ -12,9 +12,10 @@ return new class extends Migration {
     {
         Schema::create('purchase_orders', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->string('supplier');
-            $table->integer('total_amount');
+            $table->date('date')->default(now());
+            $table->string('supplier')->nullable();
+            $table->integer('total_amount')->default(0);
+            $table->string('status')->default('DRAFT');
             $table->timestamps();
         });
     }
