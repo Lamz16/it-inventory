@@ -71,8 +71,11 @@ class PurchaseOrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PurchaseOrder $purchaseOrder)
+    public function destroy($id)
     {
-        //
+        $purchaseOrder = PurchaseOrder::find($id);
+        $purchaseOrder->delete();
+
+        return redirect()->route('purchase-order.index')->with('success', 'Successfully deleted purchase order.');
     }
 }
