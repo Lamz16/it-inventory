@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\PurchaseOrder;
+use App\Models\PurchaseOrderItem;
+use App\Models\Item;
 
 class PurchaseOrderController extends Controller
 {
@@ -37,10 +39,16 @@ class PurchaseOrderController extends Controller
      */
     public function show(string $id)
     {
+        $list_items = Item::all();
+
         $purchaseOrder = PurchaseOrder::find($id);
+        $items = PurchaseOrderItem::where('purchase_order_id', $id)->get();
 
         return view('pages.purchase-order.item.index', [
+            'list_items' => $list_items,
+
             'purchaseOrder' => $purchaseOrder,
+            'items' => $items,
         ]);
     }
 
@@ -50,7 +58,6 @@ class PurchaseOrderController extends Controller
     public function update(Request $request, $id)
     {
         $purchaseOrder = PurchaseOrder::find($id);
-
         $purchaseOrder->update($request->all());
 
         return redirect()

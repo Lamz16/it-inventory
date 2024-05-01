@@ -24,6 +24,11 @@
                             <td class="px-2">:</td>
                             <td>{{ $purchaseOrder->supplier }}</td>
                         </tr>
+                        <tr>
+                            <td>Total Amount</td>
+                            <td class="px-2">:</td>
+                            <td>{{ $purchaseOrder->total_amount }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -39,31 +44,28 @@
                     <div class="card">
                         <div class="card-body">
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i>
-                                Add Item
-                            </a>
+                                    class="fa fa-plus"></i> Add Item</a>
+                            @include('pages.purchase-order.item.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Stock</th>
-                                        <th>Pcs</th>
-                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                {{-- <tbody>
+                                <tbody>
                                     <?php $i = 1; ?>
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>
                                                 {{ $i }}
                                             </td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->stock }}</td>
-                                            <td>{{ $item->pcs }}</td>
-                                            <td>{{ $item->price }}</td>
+                                            <td>{{ $item->item->name }}</td>
+                                            <td>{{ $item->quantity }}</td>
+                                            <td>{{ $item->total }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('user.destroy', $item->id) }}" method="POST"
@@ -97,7 +99,7 @@
                                         </tr>
                                         <?php $i++; ?>
                                     @endforeach
-                                </tbody> --}}
+                                </tbody>
                             </table>
                         </div>
                     </div>
