@@ -68,13 +68,13 @@
                                             <td>{{ $item->total }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('user.destroy', $item->id) }}" method="POST"
-                                                    class="d-inline">
+                                                    action="{{ route('purchase-order-item.destroy', $item->id) }}"
+                                                    method="POST" class="d-inline">
                                                     @csrf
                                                     @method('delete')
                                                     <a type="button" class="btn btn-danger"
                                                         onclick="handleDelete({{ $item->id }})">
-                                                        <i class="fa fa-trash" title="Hapus Data User"></i>
+                                                        <i class="fa fa-trash" title="Hapus Data Purchase Order Item"></i>
                                                     </a>
                                                 </form>
 

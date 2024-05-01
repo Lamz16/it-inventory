@@ -65,8 +65,24 @@ class PurchaseOrderItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PurchaseOrderItem $purchaseOrderItem)
+    public function destroy($id)
     {
-        //
+        $purchaseOrderItem = PurchaseOrderItem::find($id);
+        $purchaseOrderItem->delete();
+
+        // update total amount in purchase order
+        $purchaseOrderItems = PurchaseOrderItem::where('purchase_order_id', $purchaseOrderItem->purchase_order_id)->get();
+        $totalAmount = 0;
+        foreach ($purchaseOrderItems as $item) {
+            $totalAmount += $item->total;
+        }
+
+        $purchaseOrder = PurchaseOrder::find($purchaseOrderItem->purchase_order_id);
+        $purchaseOrder->total_amount = $totalAmount;
+        $purchaseOrder->save();
+
+        return redirect()
+            ->route('purchase-order.show', $purchaseOrderItem->purchase_order_id)
+            ->with('success', 'Item removed from purchase order');
     }
 }
