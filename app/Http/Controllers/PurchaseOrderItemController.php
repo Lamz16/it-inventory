@@ -39,27 +39,29 @@ class PurchaseOrderItemController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(PurchaseOrderItem $purchaseOrderItem)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(PurchaseOrderItem $purchaseOrderItem)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PurchaseOrderItem $purchaseOrderItem)
+    public function update(Request $request, $id)
     {
-        //
+        $purchaseOrderItem = PurchaseOrderItem::find($id);
+        $purchaseOrderItem->quantity = $request->quantity;
+        $purchaseOrderItem->total = $purchaseOrderItem->item->price * $request->quantity;
+        $purchaseOrderItem->save();
+
+        // update total amount in purchase order
+        $purchaseOrderItems = PurchaseOrderItem::where('purchase_order_id', $purchaseOrderItem->purchase_order_id)->get();
+        $totalAmount = 0;
+        foreach ($purchaseOrderItems as $item) {
+            $totalAmount += $item->total;
+        }
+
+        $purchaseOrder = PurchaseOrder::find($purchaseOrderItem->purchase_order_id);
+        $purchaseOrder->total_amount = $totalAmount;
+        $purchaseOrder->save();
+
+        return redirect()
+            ->route('purchase-order.show', $purchaseOrderItem->purchase_order_id)
+            ->with('success', 'Item updated');
     }
 
     /**

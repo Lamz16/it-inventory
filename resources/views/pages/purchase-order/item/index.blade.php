@@ -67,6 +67,11 @@
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ $item->total }}</td>
                                             <td>
+                                                <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                    data-target="#formUpdate{{ $item->id }}">
+                                                    <i class="fa fa-edit" title="Ubah Data User"></i>
+                                                </a>
+
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('purchase-order-item.destroy', $item->id) }}"
                                                     method="POST" class="d-inline">
@@ -97,6 +102,7 @@
                                                 </script>
                                             </td>
                                         </tr>
+                                        @include('pages.purchase-order.item.update')
                                         <?php $i++; ?>
                                     @endforeach
                                 </tbody>
