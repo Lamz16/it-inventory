@@ -21,14 +21,6 @@ class PurchaseOrderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -53,19 +45,17 @@ class PurchaseOrderController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(PurchaseOrder $purchaseOrder)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PurchaseOrder $purchaseOrder)
+    public function update(Request $request, $id)
     {
-        //
+        $purchaseOrder = PurchaseOrder::find($id);
+
+        $purchaseOrder->update($request->all());
+
+        return redirect()
+            ->route('purchase-order.show', $purchaseOrder->id)
+            ->with('success', 'Successfully updated purchase order.');
     }
 
     /**

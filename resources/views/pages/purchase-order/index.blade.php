@@ -54,6 +54,11 @@
                                                     <i class="fa fa-eye"></i>
                                                 </a>
 
+                                                <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                    data-target="#formUpdate{{ $item->id }}">
+                                                    <i class="fa fa-edit" title="Ubah Data User"></i>
+                                                </a>
+
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('purchase-order.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
@@ -84,6 +89,7 @@
                                                 </script>
                                             </td>
                                         </tr>
+                                        @include('pages.purchase-order.update')
                                         <?php $i++; ?>
                                     @endforeach
                                 </tbody>
