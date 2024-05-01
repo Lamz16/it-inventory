@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PurchaseOrder;
 use App\Models\PurchaseOrderItem;
 use App\Models\Item;
+use App\Models\ItemHistory;
 
 class PurchaseOrderController extends Controller
 {
@@ -59,6 +60,25 @@ class PurchaseOrderController extends Controller
     {
         $purchaseOrder = PurchaseOrder::find($id);
         $purchaseOrder->update($request->all());
+
+        if ($request->status == 'DONE') {
+            $purchaseOrderItems = PurchaseOrderItem::where('purchase_order_id', $id)->get();
+            foreach ($purchaseOrderItems as $i) {
+                $item = Item::find($i->item_id);
+
+                ItemHistory::create([
+                    'item_id' => $i->item_id,
+                    'quantity_before' => $item->stock,
+                    'quantity' => $i->quantity,
+                    'quantity_after' => $item->quantity + $i->quantity,
+                    'description' => 'Added from Purchase Order #00' . $id,
+                    'type' => 'PURCHASE ORDER',
+                ]);
+
+                $item->stock += $i->quantity;
+                $item->save();
+            }
+        }
 
         return redirect()
             ->route('purchase-order.show', $purchaseOrder->id)

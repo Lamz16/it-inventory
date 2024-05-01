@@ -54,42 +54,44 @@
                                                     <i class="fa fa-eye"></i>
                                                 </a>
 
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $item->id }}">
-                                                    <i class="fa fa-edit" title="Ubah Data User"></i>
-                                                </a>
-
-                                                <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('purchase-order.destroy', $item->id) }}" method="POST"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <a type="button" class="btn btn-danger"
-                                                        onclick="handleDelete({{ $item->id }})">
-                                                        <i class="fa fa-trash" title="Hapus Data Purchase Order"></i>
+                                                @if ($item->status !== 'DONE')
+                                                    <a type="button" class="btn btn-warning" data-toggle="modal"
+                                                        data-target="#formUpdate{{ $item->id }}">
+                                                        <i class="fa fa-edit" title="Ubah Data User"></i>
                                                     </a>
-                                                </form>
 
-                                                <script>
-                                                    function handleDelete(id) {
-                                                        Swal.fire({
-                                                            title: 'Apakah kamu yakin?',
-                                                            text: "kamu akan menghapus data ini!",
-                                                            icon: 'warning',
-                                                            showCancelButton: true,
-                                                            confirmButtonColor: '#3085d6',
-                                                            cancelButtonColor: '#d33',
-                                                            confirmButtonText: 'Ya, hapus!'
-                                                        }).then((result) => {
-                                                            if (result.isConfirmed) {
-                                                                document.getElementById('formDelete' + id).submit();
-                                                            }
-                                                        })
-                                                    }
-                                                </script>
+                                                    <form id="formDelete{{ $item->id }}"
+                                                        action="{{ route('purchase-order.destroy', $item->id) }}"
+                                                        method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <a type="button" class="btn btn-danger"
+                                                            onclick="handleDelete({{ $item->id }})">
+                                                            <i class="fa fa-trash" title="Hapus Data Purchase Order"></i>
+                                                        </a>
+                                                    </form>
+
+                                                    <script>
+                                                        function handleDelete(id) {
+                                                            Swal.fire({
+                                                                title: 'Apakah kamu yakin?',
+                                                                text: "kamu akan menghapus data ini!",
+                                                                icon: 'warning',
+                                                                showCancelButton: true,
+                                                                confirmButtonColor: '#3085d6',
+                                                                cancelButtonColor: '#d33',
+                                                                confirmButtonText: 'Ya, hapus!'
+                                                            }).then((result) => {
+                                                                if (result.isConfirmed) {
+                                                                    document.getElementById('formDelete' + id).submit();
+                                                                }
+                                                            })
+                                                        }
+                                                    </script>
+                                                    @include('pages.purchase-order.update')
+                                                @endif
                                             </td>
                                         </tr>
-                                        @include('pages.purchase-order.update')
                                         <?php $i++; ?>
                                     @endforeach
                                 </tbody>

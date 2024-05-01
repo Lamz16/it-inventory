@@ -6,7 +6,7 @@
         case 'WAITING_VALIDATION':
             $color = 'badge-warning';
             break;
-        case 'APPROVED':
+        case 'DONE':
             $color = 'badge-success';
             break;
         case 'REJECTED':

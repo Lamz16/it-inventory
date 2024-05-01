@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\ItemHistory;
+
 class Item extends Model
 {
     use HasFactory;
@@ -15,4 +17,9 @@ class Item extends Model
      * @var array<int, string>
      */
     protected $fillable = ['name', 'description', 'price', 'stock', 'pcs'];
+
+    public function histories()
+    {
+        return $this->hasMany(ItemHistory::class);
+    }
 }

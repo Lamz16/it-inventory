@@ -14,5 +14,5 @@ class PurchaseOrder extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['date', 'supplier', 'total_amount'];
+    protected $fillable = ['date', 'supplier', 'total_amount', 'status'];
 }
