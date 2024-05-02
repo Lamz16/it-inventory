@@ -121,7 +121,7 @@
                                                         @method('delete')
                                                         <a type="button" class="btn btn-danger"
                                                             onclick="handleDelete({{ $item->id }})">
-                                                            <i class="fa fa-trash" title="Hapus Data sales Order Item"></i>
+                                                            <i class="fa fa-trash" title="Hapus Data Sales Order Item"></i>
                                                         </a>
                                                     </form>
 

@@ -68,8 +68,24 @@ class SalesOrderItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SalesOrderItem $salesOrderItem)
+    public function destroy($id)
     {
-        //
+        $salesOrderItem = SalesOrderItem::find($id);
+        $salesOrderItem->delete();
+
+        // update total amount in purchase order
+        $salesOrderItems = SalesOrderItem::where('sales_order_id', $salesOrderItem->sales_order_id)->get();
+        $totalAmount = 0;
+        foreach ($salesOrderItems as $item) {
+            $totalAmount += $item->total;
+        }
+
+        $salesOrder = SalesOrder::find($salesOrderItem->sales_order_id);
+        $salesOrder->total_amount = $totalAmount;
+        $salesOrder->save();
+
+        return redirect()
+            ->route('sales-order.show', $salesOrderItem->sales_order_id)
+            ->with('success', 'Item removed from purchase order');
     }
 }
