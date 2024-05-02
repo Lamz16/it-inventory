@@ -65,6 +65,12 @@ class SalesOrderController extends Controller
             foreach ($salesOrderItems as $i) {
                 $item = Item::find($i->item_id);
 
+                if ($item->stock < $i->quantity) {
+                    return redirect()
+                        ->route('sales-order.show', $salesOrder->id)
+                        ->with('error', 'Stock is not enough.');
+                }
+
                 ItemHistory::create([
                     'item_id' => $i->item_id,
                     'quantity_before' => $item->stock,
