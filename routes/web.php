@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\PurchaseOrderItemController;
+use App\Http\Controllers\SalesOrderController;
+use App\Http\Controllers\SalesOrderItemController;
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
@@ -25,6 +27,8 @@ Route::resource('/', DashboardController::class)->middleware('auth');
 
 Route::resource('/purchase-order', PurchaseOrderController::class)->middleware('auth');
 Route::resource('/purchase-order-item', PurchaseOrderItemController::class)->middleware('auth');
+Route::resource('/sales-order', SalesOrderController::class)->middleware('auth');
+Route::resource('/sales-order-item', SalesOrderItemController::class)->middleware('auth');
 
 Route::resource('/item', ItemController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');

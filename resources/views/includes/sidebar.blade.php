@@ -32,9 +32,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/delivery-order" class="nav-link {{ Request::is('delivery-order') ? 'active' : '' }}">
+                    <a href="/sales-order" class="nav-link {{ Request::is('sales-order') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file"></i>
-                        <p>Delivery Order</p>
+                        <p>Sales Order</p>
                     </a>
                 </li>
                 {{-- <li class="nav-item">

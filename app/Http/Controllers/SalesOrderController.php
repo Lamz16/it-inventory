@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SalesOrder;
 use Illuminate\Http\Request;
+
+use App\Models\SalesOrder;
+use App\Models\SalesOrderItem;
+use App\Models\Item;
+use App\Models\ItemHistory;
 
 class SalesOrderController extends Controller
 {
@@ -12,15 +16,11 @@ class SalesOrderController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $items = SalesOrder::all();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('pages.sales-order.index', [
+            'items' => $items,
+        ]);
     }
 
     /**
@@ -28,7 +28,11 @@ class SalesOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $result = SalesOrder::create($data);
+
+        return redirect()->route('sales-order.show', $result->id);
     }
 
     /**
