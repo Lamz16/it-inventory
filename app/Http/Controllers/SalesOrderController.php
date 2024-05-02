@@ -52,21 +52,36 @@ class SalesOrderController extends Controller
             'items' => $items,
         ]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SalesOrder $salesOrder)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SalesOrder $salesOrder)
+    public function update(Request $request, $id)
     {
-        //
+        $salesOrder = SalesOrder::find($id);
+        $salesOrder->update($request->all());
+
+        if ($request->status == 'DONE') {
+            $salesOrderItems = SalesOrderItem::where('sales_order_id', $id)->get();
+            foreach ($salesOrderItems as $i) {
+                $item = Item::find($i->item_id);
+
+                ItemHistory::create([
+                    'item_id' => $i->item_id,
+                    'quantity_before' => $item->stock,
+                    'quantity' => $i->quantity,
+                    'quantity_after' => $item->quantity - $i->quantity,
+                    'description' => 'Remove from Sales Order #00' . $id,
+                    'type' => 'SALES ORDER',
+                ]);
+
+                $item->stock -= $i->quantity;
+                $item->save();
+            }
+        }
+
+        return redirect()
+            ->route('sales-order.show', $salesOrder->id)
+            ->with('success', 'Successfully updated sales order.');
     }
 
     /**
