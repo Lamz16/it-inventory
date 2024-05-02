@@ -69,7 +69,7 @@ class SalesOrderController extends Controller
                     'item_id' => $i->item_id,
                     'quantity_before' => $item->stock,
                     'quantity' => $i->quantity,
-                    'quantity_after' => $item->quantity - $i->quantity,
+                    'quantity_after' => $item->stock - $i->quantity,
                     'description' => 'Remove from Sales Order #00' . $id,
                     'type' => 'SALES ORDER',
                 ]);

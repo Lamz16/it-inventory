@@ -70,7 +70,7 @@ class PurchaseOrderController extends Controller
                     'item_id' => $i->item_id,
                     'quantity_before' => $item->stock,
                     'quantity' => $i->quantity,
-                    'quantity_after' => $item->quantity + $i->quantity,
+                    'quantity_after' => $item->stock + $i->quantity,
                     'description' => 'Added from Purchase Order #00' . $id,
                     'type' => 'PURCHASE ORDER',
                 ]);
