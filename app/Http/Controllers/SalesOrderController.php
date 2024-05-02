@@ -57,6 +57,8 @@ class SalesOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $salesOrder = SalesOrder::find($id);
+
         if ($request->status == 'DONE') {
             $salesOrderItems = SalesOrderItem::where('sales_order_id', $id)->get();
             foreach ($salesOrderItems as $i) {
@@ -82,7 +84,6 @@ class SalesOrderController extends Controller
             }
         }
 
-        $salesOrder = SalesOrder::find($id);
         $salesOrder->update($request->all());
 
         return redirect()

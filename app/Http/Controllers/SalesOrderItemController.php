@@ -21,6 +21,12 @@ class SalesOrderItemController extends Controller
         $data = $request->all();
         $data['total'] = $price * $request->quantity;
 
+        if ($request->quantity > Item::find($request->item_id)->stock) {
+            return redirect()
+                ->route('sales-order.show', $request->sales_order_id)
+                ->with('error', 'Quantity exceeds stock');
+        }
+
         SalesOrderItem::create($data);
 
         // update total amount in purchase order
@@ -45,6 +51,13 @@ class SalesOrderItemController extends Controller
     public function update(Request $request, $id)
     {
         $salesOrderItem = SalesOrderItem::find($id);
+
+        if ($request->quantity > Item::find($salesOrderItem->item_id)->stock) {
+            return redirect()
+                ->route('sales-order.show', $salesOrderItem->sales_order_id)
+                ->with('error', 'Quantity exceeds stock');
+        }
+
         $salesOrderItem->quantity = $request->quantity;
         $salesOrderItem->total = $salesOrderItem->item->price * $request->quantity;
         $salesOrderItem->save();
