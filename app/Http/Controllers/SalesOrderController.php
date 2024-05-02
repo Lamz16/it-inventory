@@ -38,9 +38,19 @@ class SalesOrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SalesOrder $salesOrder)
+    public function show($id)
     {
-        //
+        $list_items = Item::all();
+
+        $salesOrder = SalesOrder::find($id);
+        $items = SalesOrderItem::where('sales_order_id', $id)->get();
+
+        return view('pages.sales-order.item.index', [
+            'list_items' => $list_items,
+
+            'salesOrder' => $salesOrder,
+            'items' => $items,
+        ]);
     }
 
     /**

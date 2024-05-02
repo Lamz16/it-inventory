@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Date</th>
-                                        <th>Supplier</th>
+                                        <th>Customer</th>
                                         <th>Status</th>
                                         <th class="text-right">Total Amount</th>
                                         <th>Aksi</th>
@@ -38,18 +38,18 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>
-                                                <a href="{{ route('purchase-order.show', $item->id) }}">
+                                                <a href="{{ route('sales-order.show', $item->id) }}">
                                                     #00{{ $item->id }}
                                                 </a>
                                             </td>
                                             <td>{{ $item->date }}</td>
-                                            <td>{{ $item->supplier }}</td>
+                                            <td>{{ $item->customer }}</td>
                                             <td>
                                                 @include('includes.badge', ['status' => $item->status])
                                             </td>
                                             <td class="rupiah-format text-right">{{ $item->total_amount }}</td>
                                             <td>
-                                                <a href="{{ route('purchase-order.show', $item->id) }}"
+                                                <a href="{{ route('sales-order.show', $item->id) }}"
                                                     class="btn btn-primary">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
@@ -61,13 +61,13 @@
                                                     </a>
 
                                                     <form id="formDelete{{ $item->id }}"
-                                                        action="{{ route('purchase-order.destroy', $item->id) }}"
+                                                        action="{{ route('sales-order.destroy', $item->id) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         @method('delete')
                                                         <a type="button" class="btn btn-danger"
                                                             onclick="handleDelete({{ $item->id }})">
-                                                            <i class="fa fa-trash" title="Hapus Data Purchase Order"></i>
+                                                            <i class="fa fa-trash" title="Hapus Data sales Order"></i>
                                                         </a>
                                                     </form>
 

@@ -6,7 +6,7 @@
             <form action="{{ route('purchase-order-item.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <input type="hidden" name="purchase_order_id" value="{{ $purchaseOrder->id }}">
+                <input type="hidden" name="purchase_order_id" value="{{ $salesOrder->id }}">
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="formUpdate{{ $item->id }}Label">
@@ -18,9 +18,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="purchaseOrder">Purchase Order</label>
-                        <input type="text" class="form-control" id="purchaseOrder" disabled
-                            value="Purchase Order #00{{ $purchaseOrder->id }}" />
+                        <label for="salesOrder">Purchase Order</label>
+                        <input type="text" class="form-control" id="salesOrder" disabled
+                            value="Purchase Order #00{{ $salesOrder->id }}" />
                     </div>
                     <div class="form-group">
                         <label for="item_id">Item</label>

@@ -5,36 +5,36 @@
             <div class="row mb-2">
                 <div class="col-md-6">
                     <h1 class="mb-2">
-                        Purchase Order #00{{ $purchaseOrder->id }}
+                        Sales Order #00{{ $salesOrder->id }}
                     </h1>
 
                     <table>
                         <tr>
                             <td>Status</td>
                             <td class="px-2">:</td>
-                            <td>@include('includes.badge', ['status' => $purchaseOrder->status])</td>
+                            <td>@include('includes.badge', ['status' => $salesOrder->status])</td>
                         </tr>
                         <tr>
                             <td>Date</td>
                             <td class="px-2">:</td>
-                            <td>{{ $purchaseOrder->date }}</td>
+                            <td>{{ $salesOrder->date }}</td>
                         </tr>
                         <tr>
-                            <td>Supplier</td>
+                            <td>Customer</td>
                             <td class="px-2">:</td>
-                            <td>{{ $purchaseOrder->supplier }}</td>
+                            <td>{{ $salesOrder->customer }}</td>
                         </tr>
                         <tr>
                             <td>Total Amount</td>
                             <td class="px-2">:</td>
-                            <td class="rupiah-format">{{ $purchaseOrder->total_amount }}</td>
+                            <td class="rupiah-format">{{ $salesOrder->total_amount }}</td>
                         </tr>
                     </table>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex justify-content-end" style="gap: 0.5rem">
-                        @if ($purchaseOrder->status !== 'DONE')
-                            <form action="{{ route('purchase-order.update', $purchaseOrder->id) }}" method="POST">
+                        @if ($salesOrder->status !== 'DONE')
+                            <form action="{{ route('sales-order.update', $salesOrder->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="status" value="REJECTED">
@@ -44,8 +44,8 @@
                                 </button>
                             </form>
                         @endif
-                        @if ($purchaseOrder->status == 'DRAFT')
-                            <form action="{{ route('purchase-order.update', $purchaseOrder->id) }}" method="POST">
+                        @if ($salesOrder->status == 'DRAFT')
+                            <form action="{{ route('sales-order.update', $salesOrder->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="status" value="WAITING_VALIDATION">
@@ -55,8 +55,8 @@
                                 </button>
                             </form>
                         @endif
-                        @if ($purchaseOrder->status == 'WAITING_VALIDATION')
-                            <form action="{{ route('purchase-order.update', $purchaseOrder->id) }}" method="POST">
+                        @if ($salesOrder->status == 'WAITING_VALIDATION')
+                            <form action="{{ route('sales-order.update', $salesOrder->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="status" value="DONE">
@@ -80,10 +80,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            @if ($purchaseOrder->status == 'DRAFT')
+                            @if ($salesOrder->status == 'DRAFT')
                                 <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                         class="fa fa-plus"></i> Add Item</a>
-                                @include('pages.purchase-order.item.create')
+                                @include('pages.sales-order.item.create')
                             @endif
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
@@ -92,7 +92,7 @@
                                         <th>Nama</th>
                                         <th>Quantity</th>
                                         <th class="text-right">Total</th>
-                                        @if ($purchaseOrder->status == 'DRAFT')
+                                        @if ($salesOrder->status == 'DRAFT')
                                             <th>Aksi</th>
                                         @endif
                                     </tr>
@@ -107,7 +107,7 @@
                                             <td>{{ $item->item->name }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td class="rupiah-format text-right">{{ $item->total }}</td>
-                                            @if ($purchaseOrder->status == 'DRAFT')
+                                            @if ($salesOrder->status == 'DRAFT')
                                                 <td>
                                                     <a type="button" class="btn btn-warning" data-toggle="modal"
                                                         data-target="#formUpdate{{ $item->id }}">
@@ -115,14 +115,13 @@
                                                     </a>
 
                                                     <form id="formDelete{{ $item->id }}"
-                                                        action="{{ route('purchase-order-item.destroy', $item->id) }}"
+                                                        action="{{ route('sales-order-item.destroy', $item->id) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         @method('delete')
                                                         <a type="button" class="btn btn-danger"
                                                             onclick="handleDelete({{ $item->id }})">
-                                                            <i class="fa fa-trash"
-                                                                title="Hapus Data Purchase Order Item"></i>
+                                                            <i class="fa fa-trash" title="Hapus Data sales Order Item"></i>
                                                         </a>
                                                     </form>
 
@@ -146,7 +145,7 @@
                                                 </td>
                                             @endif
                                         </tr>
-                                        @include('pages.purchase-order.item.update')
+                                        @include('pages.sales-order.item.update')
                                         <?php $i++; ?>
                                     @endforeach
                                 </tbody>
