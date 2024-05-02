@@ -29,7 +29,7 @@
                                         <th>Date</th>
                                         <th>Supplier</th>
                                         <th>Status</th>
-                                        <th>Total Amount</th>
+                                        <th class="text-right">Total Amount</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -47,7 +47,7 @@
                                             <td>
                                                 @include('includes.badge', ['status' => $item->status])
                                             </td>
-                                            <td>{{ $item->total_amount }}</td>
+                                            <td class="rupiah-format text-right">{{ $item->total_amount }}</td>
                                             <td>
                                                 <a href="{{ route('purchase-order.show', $item->id) }}"
                                                     class="btn btn-primary">

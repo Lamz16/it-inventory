@@ -27,7 +27,7 @@
                         <tr>
                             <td>Total Amount</td>
                             <td class="px-2">:</td>
-                            <td>{{ $purchaseOrder->total_amount }}</td>
+                            <td class="rupiah-format">{{ $purchaseOrder->total_amount }}</td>
                         </tr>
                     </table>
                 </div>
@@ -91,7 +91,7 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Quantity</th>
-                                        <th>Total</th>
+                                        <th class="text-right">Total</th>
                                         @if ($purchaseOrder->status == 'DRAFT')
                                             <th>Aksi</th>
                                         @endif
@@ -106,7 +106,7 @@
                                             </td>
                                             <td>{{ $item->item->name }}</td>
                                             <td>{{ $item->quantity }}</td>
-                                            <td>{{ $item->total }}</td>
+                                            <td class="rupiah-format text-right">{{ $item->total }}</td>
                                             @if ($purchaseOrder->status == 'DRAFT')
                                                 <td>
                                                     <a type="button" class="btn btn-warning" data-toggle="modal"

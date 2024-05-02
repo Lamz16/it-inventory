@@ -30,7 +30,7 @@
                                         <th>Stock</th>
                                         <th>Pcs</th>
                                         <th>Price</th>
-                                        <th>Aksi</th>
+                                        <th class="text-right">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,13 +38,19 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>
-                                                {{ $i }}
+                                                <a href="{{ route('item.show', $item->id) }}">
+                                                    #00{{ $item->id }}
+                                                </a>
                                             </td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->stock }}</td>
                                             <td>{{ $item->pcs }}</td>
                                             <td>{{ $item->price }}</td>
-                                            <td>
+                                            <td class="text-right">
+                                                <a href="{{ route('item.show', $item->id) }}" class="btn btn-primary">
+                                                    <i class="fa fa-eye"></i> History
+                                                </a>
+
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('user.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">

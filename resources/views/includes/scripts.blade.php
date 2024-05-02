@@ -73,5 +73,15 @@
         $('.select2bs4').select2({
             theme: 'bootstrap4'
         })
+
+        // change to money format all class .money-format
+
+        $('.rupiah-format').each(function() {
+            var value = $(this).text();
+            $(this).text(new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).format(value));
+        });
     });
 </script>
