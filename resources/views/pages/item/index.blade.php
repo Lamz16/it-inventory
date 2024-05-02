@@ -29,7 +29,7 @@
                                         <th>Nama</th>
                                         <th>Stock</th>
                                         <th>Pcs</th>
-                                        <th>Price</th>
+                                        <th class="text-right">Price</th>
                                         <th class="text-right">Aksi</th>
                                     </tr>
                                 </thead>
@@ -45,7 +45,7 @@
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->stock }}</td>
                                             <td>{{ $item->pcs }}</td>
-                                            <td>{{ $item->price }}</td>
+                                            <td class="rupiah-format text-right">{{ $item->price }}</td>
                                             <td class="text-right">
                                                 <a href="{{ route('item.show', $item->id) }}" class="btn btn-primary">
                                                     <i class="fa fa-eye"></i> History
