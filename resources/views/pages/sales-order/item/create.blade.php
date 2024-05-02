@@ -2,9 +2,9 @@
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('purchase-order-item.store') }}" method="POST">
+            <form action="{{ route('sales-order-item.store') }}" method="POST">
                 @csrf
-                <input type="hidden" name="purchase_order_id" value="{{ $salesOrder->id }}">
+                <input type="hidden" name="sales_order_id" value="{{ $salesOrder->id }}">
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
@@ -16,9 +16,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="salesOrder">Purchase Order</label>
+                        <label for="salesOrder">Sales Order</label>
                         <input type="text" class="form-control" id="salesOrder" disabled
-                            value="Purchase Order #00{{ $salesOrder->id }}" />
+                            value="Sales Order #00{{ $salesOrder->id }}" />
                     </div>
                     <div class="form-group">
                         <label for="item_id">Item</label>
