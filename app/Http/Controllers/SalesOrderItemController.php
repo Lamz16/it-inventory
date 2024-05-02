@@ -40,27 +40,29 @@ class SalesOrderItemController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(SalesOrderItem $salesOrderItem)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SalesOrderItem $salesOrderItem)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SalesOrderItem $salesOrderItem)
+    public function update(Request $request, $id)
     {
-        //
+        $salesOrderItem = SalesOrderItem::find($id);
+        $salesOrderItem->quantity = $request->quantity;
+        $salesOrderItem->total = $salesOrderItem->item->price * $request->quantity;
+        $salesOrderItem->save();
+
+        // update total amount in purchase order
+        $salesOrderItems = SalesOrderItem::where('sales_order_id', $salesOrderItem->sales_order_id)->get();
+        $totalAmount = 0;
+        foreach ($salesOrderItems as $item) {
+            $totalAmount += $item->total;
+        }
+
+        $salesOrder = SalesOrder::find($salesOrderItem->sales_order_id);
+        $salesOrder->total_amount = $totalAmount;
+        $salesOrder->save();
+
+        return redirect()
+            ->route('sales-order.show', $salesOrderItem->sales_order_id)
+            ->with('success', 'Item updated');
     }
 
     /**
