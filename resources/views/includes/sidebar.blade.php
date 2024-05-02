@@ -37,12 +37,12 @@
                         <p>Sales Order</p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="/invoice" class="nav-link {{ Request::is('invoice') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-file-invoice-dollar"></i>
-                        <p>Invoice</p>
+                <li class="nav-item">
+                    <a href="/history" class="nav-link {{ Request::is('history') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-history"></i>
+                        <p>History</p>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-header font-weight-bold">Setup</li>
                 <li class="nav-item">
                     <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">

@@ -27,7 +27,7 @@ class ItemController extends Controller
     public function show($id)
     {
         $item = Item::find($id);
-        $histories = ItemHistory::where('item_id', $id)->orderBy('created_at', 'asc')->get();
+        $histories = ItemHistory::where('item_id', $id)->orderBy('created_at', 'desc')->get();
 
         return view('pages.item.show', [
             'item' => $item,
