@@ -75,7 +75,6 @@
         })
 
         // change to money format all class .money-format
-
         $('.rupiah-format').each(function() {
             var value = $(this).text();
             $(this).text(new Intl.NumberFormat('id-ID', {
@@ -83,5 +82,8 @@
                 currency: 'IDR'
             }).format(value));
         });
+
+        //Date range picker
+        $('#date-range').daterangepicker()
     });
 </script>

@@ -14,9 +14,12 @@ class ItemController extends Controller
      */
     public function index()
     {
+        $list_pcs = ['pcs', 'box', 'pack', 'set', 'dozen', 'meter', 'liter', 'gram', 'kilogram', 'ton', 'other'];
         $items = Item::all();
 
         return view('pages.item.index', [
+            'list_pcs' => $list_pcs,
+
             'items' => $items,
         ]);
     }

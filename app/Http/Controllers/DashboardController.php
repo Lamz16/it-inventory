@@ -8,6 +8,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.dashboard.index');
+        $start = date('m/d/Y', strtotime('first day of this month'));
+        $end = date('m/d/Y', strtotime('last day of this month'));
+
+        return view('pages.dashboard.index', [
+            'range' => $start . ' - ' . $end,
+        ]);
     }
 }

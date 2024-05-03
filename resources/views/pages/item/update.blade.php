@@ -15,31 +15,68 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Masukan Full Name"
-                            name="name" required value="{{ $item->name }}" />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">Code</label>
+                                <input type="text" class="form-control" id="code" placeholder="Input Code"
+                                    name="code" required value="{{ $item->code }}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Input Name"
+                                    name="name" required value="{{ $item->name }}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="stock_alert">Stock Alert</label>
+                                <input type="text" class="form-control" id="stock_alert"
+                                    placeholder="Input Stock Alert" name="stock_alert" required
+                                    value="{{ $item->stock_alert }}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="pcs">Pcs</label>
+                                <select name="pcs" id="pcs" class="form-control" required>
+                                    <option value="">-- Pcs Akses --</option>
+                                    @foreach ($list_pcs as $i)
+                                        <option value="{{ $i }}" {{ $i == $item->pcs ? 'selected' : '' }}>
+                                            {{ $i }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" class="form-control" id="price" placeholder="Input Price"
+                                    name="price" required value="{{ $item->price }}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="price_sell">Price Sell</label>
+                                <input type="number" class="form-control" id="price_sell"
+                                    placeholder="Input Price Sell" name="price_sell" required
+                                    value="{{ $item->price_sell }}" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea type="text" class="form-control" id="description" placeholder="Input description" name="description"
+                                    rows="3">
+                                {{ $item->description }}
+                                </textarea>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="birthdate">Birthdate</label>
-                        <input type="date" class="form-control" id="birthdate" placeholder="Masukan Tanggal Lahir"
-                            name="birthdate" value="{{ $item->birthdate }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Masukan email address"
-                            name="email" required value="{{ $item->email }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Masukan username"
-                            name="username" required value="{{ $item->username }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Password">Password</label>
-                        <input type="password" class="form-control" id="Password"
-                            placeholder="Masukan Password untuk update" name="password" />
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">

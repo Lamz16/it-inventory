@@ -12,10 +12,13 @@ return new class extends Migration {
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
             $table->string('name');
             $table->string('description')->nullable();
             $table->integer('price');
+            $table->integer('price_sell');
             $table->integer('stock')->default(0);
+            $table->integer('stock_alert')->default(0);
             $table->string('pcs');
             $table->timestamps();
         });

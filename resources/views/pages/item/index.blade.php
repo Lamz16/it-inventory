@@ -26,10 +26,12 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Code</th>
                                         <th>Nama</th>
-                                        <th>Stock</th>
                                         <th>Pcs</th>
                                         <th class="text-right">Price</th>
+                                        <th class="text-right">Price Sell</th>
+                                        <th>Stock</th>
                                         <th class="text-right">Aksi</th>
                                     </tr>
                                 </thead>
@@ -42,10 +44,12 @@
                                                     #00{{ $item->id }}
                                                 </a>
                                             </td>
+                                            <td>{{ $item->code }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->stock }}</td>
                                             <td>{{ $item->pcs }}</td>
                                             <td class="rupiah-format text-right">{{ $item->price }}</td>
+                                            <td class="rupiah-format text-right">{{ $item->price_sell }}</td>
+                                            <td>{{ $item->stock }}</td>
                                             <td class="text-right">
                                                 <a href="{{ route('item.show', $item->id) }}" class="btn btn-primary">
                                                     <i class="fa fa-eye"></i> History

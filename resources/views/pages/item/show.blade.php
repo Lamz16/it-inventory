@@ -32,7 +32,17 @@
                             <p class="mb-0">
                                 <span>Price</span>
                                 <span class="px-2">:</span>
-                                <span>{{ $item->price }}</span>
+                                <span class="rupiah-format">{{ $item->price }}</span>
+                            </p>
+                            <p class="mb-0">
+                                <span>Price Sell</span>
+                                <span class="px-2">:</span>
+                                <span class="rupiah-format">{{ $item->price_sell }}</span>
+                            </p>
+                            <p class="mb-0">
+                                <span>Stock Alert</span>
+                                <span class="px-2">:</span>
+                                <span>{{ $item->stock_alert }}</span>
                             </p>
                             <p class="mb-0">
                                 <span>Description</span>
