@@ -16,10 +16,10 @@ class SalesOrderItemController extends Controller
      */
     public function store(Request $request)
     {
-        $price = Item::find($request->item_id)->price;
+        $price_sell = Item::find($request->item_id)->price_sell;
 
         $data = $request->all();
-        $data['total'] = $price * $request->quantity;
+        $data['total'] = $price_sell * $request->quantity;
 
         if ($request->quantity > Item::find($request->item_id)->stock) {
             return redirect()
@@ -59,7 +59,7 @@ class SalesOrderItemController extends Controller
         }
 
         $salesOrderItem->quantity = $request->quantity;
-        $salesOrderItem->total = $salesOrderItem->item->price * $request->quantity;
+        $salesOrderItem->total = $salesOrderItem->item->price_sell * $request->quantity;
         $salesOrderItem->save();
 
         // update total amount in purchase order

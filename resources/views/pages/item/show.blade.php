@@ -73,7 +73,6 @@
                                             <td>{{ $item->quantity_after }}</td>
                                         </tr>
                                         <?php $i++; ?>
-                                        @include('pages.item.update')
                                     @endforeach
                                 </tbody>
                             </table>
