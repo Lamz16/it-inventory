@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Welcome {{ request()->session()->get('user')['name'] }} </h1>
+                    <h1 class="m-0">Selamat Datang {{ request()->session()->get('user')['name'] }} </h1>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="mb-4">
-                        <p class="text-muted mb-0">Income</p>
+                        <p class="text-muted mb-0">Pendapatan</p>
                         <h2 class="rupiah-format mb-1" style="font-weight: 600">{{ $totalProfit }}</h1>
                             <p class="mb-0" style="font-weight: 600">
                                 <span class="text-danger">PO - <span
@@ -37,7 +37,8 @@
                                     <p class="mb-0">Purchase Order</p>
 
                                     <p class="">
-                                        There's <b>{{ $totalPurchaseOrderNotDone }}</b> finished purchase order
+                                        {{-- There's <b>{{ $totalPurchaseOrderNotDone }}</b> finished purchase order --}}
+                                        Total <b>{{ $totalPurchaseOrderNotDone }}</b> PO yang belum selesai
                                     </p>
                                 </div>
                                 <div class="icon">
@@ -54,7 +55,9 @@
                                     <p class="mb-0">Sales Order</p>
 
                                     <p class="">
-                                        There's <b>{{ $totalSalesOrderNotDone }}</b> finished purchase order
+                                        {{-- There's <b>{{ $totalSalesOrderNotDone }}</b> finished purchase order --}}
+                                        Total <b>{{ $totalSalesOrderNotDone }}</b> SO yang belum selesai
+
                                     </p>
                                 </div>
                                 <div class="icon">
@@ -77,9 +80,11 @@
                                             <div class="progress-bar" style="width: 70%"></div>
                                         </div> --}}
                                     <span class="progress-description">
-                                        There are <b>{{ $totalStock }}</b> goods in the warehouse <br>
-                                        There are <b>{{ $totalLowStock }}</b> goods that are running low in the
-                                        warehouse
+                                        {{-- There are <b>{{ $totalStock }}</b> goods in the warehouse <br> --}}
+                                        Total <b>{{ $totalStock }}</b> stock barang di gudang <br>
+                                        {{-- There are <b>{{ $totalLowStock }}</b> goods that are running low in the
+                                        warehouse --}}
+                                        Ada <b>{{ $totalLowStock }}</b> barang yang tidak ada di gudang
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -101,9 +106,9 @@
                                         <th>No</th>
                                         <th>Date</th>
                                         <th>Type</th>
-                                        <th>Quantity Before</th>
+                                        <th>Quantity Sebelum</th>
                                         <th>Quantity</th>
-                                        <th>Quantity After</th>
+                                        <th>Quantity Sesudah</th>
                                     </tr>
                                 </thead>
                                 <tbody>
