@@ -15,11 +15,11 @@
 
     <script>
         window.embeddedChatbotConfig = {
-            chatbotId: "aW_6LNpTsSrULXSYbph6e",
+            chatbotId: "R_Z9Zb3t8jozAhR80AiUV",
             domain: "www.chatbase.co"
         }
     </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="aW_6LNpTsSrULXSYbph6e" domain="www.chatbase.co" defer>
+    <script src="https://www.chatbase.co/embed.min.js" chatbotId="R_Z9Zb3t8jozAhR80AiUV" domain="www.chatbase.co" defer>
     </script>
 </body>
 
