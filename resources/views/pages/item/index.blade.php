@@ -26,8 +26,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Code</th>
                                         <th>Nama</th>
+                                        <th>Code</th>
                                         <th>Pcs</th>
                                         <th class="text-right">Price</th>
                                         <th class="text-right">Price Sell</th>
@@ -44,8 +44,18 @@
                                                     #00{{ $item->id }}
                                                 </a>
                                             </td>
+                                            <td>
+                                                @if ($item->thumbnail)
+                                                    {{ $item->thumbnail }}
+                                                    {{--     $thumbnail->move(public_path('images/items'), $thumbnail_name); --}}
+                                                    <img src="{{ asset($item->thumbnail) }}" alt="thumbnail"
+                                                        class="img-thumbnail" width="50" />
+                                                @endif
+
+                                                {{ $item->name }}
+
+                                            </td>
                                             <td>{{ $item->code }}</td>
-                                            <td>{{ $item->name }}</td>
                                             <td>{{ $item->pcs }}</td>
                                             <td class="rupiah-format text-right">{{ $item->price }}</td>
                                             <td class="rupiah-format text-right">{{ $item->price_sell }}</td>

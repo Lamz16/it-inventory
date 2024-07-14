@@ -16,7 +16,7 @@ class Item extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['code', 'name', 'description', 'price', 'price_sell', 'stock', 'stock_alert', 'pcs'];
+    protected $fillable = ['code', 'name', 'description', 'price', 'price_sell', 'stock', 'stock_alert', 'pcs', 'thumbnail', 'category'];
 
     public function histories()
     {

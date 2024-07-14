@@ -3,12 +3,12 @@
     aria-labelledby="formUpdate{{ $item->id }}Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('user.update', $item->id) }}" method="POST">
+            <form action="{{ route('item.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
                     <h5 class="modal-title" id="formUpdate{{ $item->id }}Label">
-                        Update User
+                        Update Item
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -16,6 +16,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="thumbnail">Thumbnail</label>
+                                <input type="file" class="form-control-file" id="thumbnail" name="thumbnail" />
+
+                                <span class="text-muted mt-5 text-sm">
+                                    Upload if you want to change the thumbnail
+                                </span>
+                            </div>
+                        </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="name">Code</label>

@@ -14,6 +14,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="thumbnail">Thumbnail</label>
+                                <input type="file" class="form-control-file" id="thumbnail" name="thumbnail" />
+                            </div>
+                        </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="name">Code</label>

@@ -22,7 +22,7 @@ class AuthController extends Controller
             $user = User::where('username', $request->useremail)->first();
             $request->session()->put('user', $user);
 
-            return redirect('/');
+            return redirect('/dashboard');
         }
 
         if (Auth::attempt(['email' => $request->useremail, 'password' => $request->password])) {
@@ -31,7 +31,7 @@ class AuthController extends Controller
             $user = User::where('email', $request->useremail)->first();
             $request->session()->put('user', $user);
 
-            return redirect('/');
+            return redirect('/dashboard');
         }
 
         return back()->with('error', 'Email atau Password salah');

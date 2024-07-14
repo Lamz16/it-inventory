@@ -46,8 +46,44 @@ class ItemController extends Controller
         $data = $request->all();
         $data['stock'] = 0;
 
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail_name = time() . '.' . $request->file('thumbnail')->extension();
+            $uploaded_thumbnail = $request->file('thumbnail')->move(public_path('images'), $thumbnail_name);
+            $thumbnail = 'images/' . $thumbnail_name;
+            $data['thumbnail'] = $thumbnail;
+        }
+
         Item::create($data);
 
         return redirect()->route('item.index')->with('success', 'Successfully added item');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        $item = Item::find($id);
+
+        if ($request->hasFile('thumbnail')) {
+            // Define the upload path
+            $uploadPath = public_path('images');
+
+            // Check if the directory exists, if not, create it
+            if (!file_exists($uploadPath)) {
+                mkdir($uploadPath, 0755, true);
+            }
+
+            // Generate a unique name for the thumbnail
+            $thumbnail_name = time() . '.' . $request->file('thumbnail')->extension();
+            // Move the uploaded file to the public/images directory
+            $uploaded_thumbnail = $request->file('thumbnail')->move($uploadPath, $thumbnail_name);
+            // Set the thumbnail path to be saved in the database
+            $data['thumbnail'] = 'images/' . $thumbnail_name;
+        }
+
+        // Update the item with the new data
+        $item->update($data);
+
+        // Redirect back to the item index page with a success message
+        return redirect()->route('item.index')->with('success', 'Successfully updated item');
     }
 }
