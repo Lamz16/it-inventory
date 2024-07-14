@@ -101,40 +101,22 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <div class="card">
-                            <img src="produk1.jpg" class="card-img-top" alt="Produk 1" />
-                            <div class="card-body">
-                                <h5 class="card-title">Produk 1</h5>
-                                <p class="card-text">Deskripsi singkat produk 1. Deskripsi singkat produk 1. Deskripsi
-                                    singkat produk 1.</p>
-                                <a href="#" class="btn btn-primary">Lihat Detail</a>
+                    @foreach ($items as $item)
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <div class="card">
+                                <img src="produk1.jpg" class="card-img-top" alt="Produk 1" />
+                                <div class="card-body">
+                                    <p class="text-muted mb-0">{{ $item->code }}</p>
+                                    <h5 class="card-title">{{ $item->name }}</h5>
+                                    <p class="card-text">
+                                        {{ $item->description }}
+                                    </p>
+                                    <a href="/product/{{ $item->id }}" class="btn btn-primary">Lihat Detail</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <div class="card">
-                            <img src="produk2.jpg" class="card-img-top" alt="Produk 2" />
-                            <div class="card-body">
-                                <h5 class="card-title">Produk 2</h5>
-                                <p class="card-text">Deskripsi singkat produk 2. Deskripsi singkat produk 2. Deskripsi
-                                    singkat produk 2.</p>
-                                <a href="#" class="btn btn-primary">Lihat Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <div class="card">
-                            <img src="produk3.jpg" class="card-img-top" alt="Produk 3" />
-                            <div class="card-body">
-                                <h5 class="card-title">Produk 3</h5>
-                                <p class="card-text">Deskripsi singkat produk 3. Deskripsi singkat produk 3. Deskripsi
-                                    singkat produk 3.</p>
-                                <a href="#" class="btn btn-primary">Lihat Detail</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tambahkan lebih banyak kartu produk sesuai kebutuhan -->
+                    @endforeach
+
                 </div>
             </main>
         </div>

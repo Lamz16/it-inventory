@@ -59,9 +59,13 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h2>Product Name</h2>
-                <p>Product description goes here. This is a placeholder text for the product description.</p>
-                <p>Stok: <span id="productStock">10</span></p>
+                <h2>{{ $item->name }}</h2>
+                <p>
+                    {{ $item->description }}
+                </p>
+                <p>Stok: <span id="productStock">
+                        {{ $item->stock }}
+                    </span></p>
             </div>
         </div>
     </div>
