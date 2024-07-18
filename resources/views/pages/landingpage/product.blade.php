@@ -104,7 +104,8 @@
                     @foreach ($items as $item)
                         <div class="col-md-4 col-sm-6 mb-4">
                             <div class="card">
-                                <img src="produk1.jpg" class="card-img-top" alt="Produk 1" />
+                                <img src="https://static.vecteezy.com/system/resources/previews/006/945/499/non_2x/illustration-of-touring-man-riding-a-motorbike-free-vector.jpg"
+                                    class="card-img-top" alt="Produk 1" />
                                 <div class="card-body">
                                     <p class="text-muted mb-0">{{ $item->code }}</p>
                                     <h5 class="card-title">{{ $item->name }}</h5>

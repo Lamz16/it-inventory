@@ -77,16 +77,16 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="honda.jpg" style="height: 400px; object-fit: cover" class="d-block w-100"
-                        alt="Slide 1" />
+                    <img src="https://lh5.googleusercontent.com/r5U9-nbJ8fh4W05KloAH_CV1GIRLhlrjqvMqFDSz2h9fbGAcHZ79wFG16zfYzsQ14u8j3CGx2Itry6RSG0DDc6Krfl7Dy55GNu6Wt2VGq4sb9u7cHGuHggrE9DJp4l-s3VVDaENVQzfMahxVNA"
+                        style="height: 400px; object-fit: cover" class="d-block w-100" alt="Slide 1" />
                 </div>
                 <div class="carousel-item">
-                    <img src="yamaha.jpg" style="height: 400px; object-fit: cover" class="d-block w-100"
-                        alt="Slide 2" />
+                    <img src="https://lh5.googleusercontent.com/r5U9-nbJ8fh4W05KloAH_CV1GIRLhlrjqvMqFDSz2h9fbGAcHZ79wFG16zfYzsQ14u8j3CGx2Itry6RSG0DDc6Krfl7Dy55GNu6Wt2VGq4sb9u7cHGuHggrE9DJp4l-s3VVDaENVQzfMahxVNA"
+                        style="height: 400px; object-fit: cover" class="d-block w-100" alt="Slide 2" />
                 </div>
                 <div class="carousel-item">
-                    <img src="suzuki.jpg" style="height: 400px; object-fit: cover" class="d-block w-100"
-                        alt="Slide 3" />
+                    <img src="https://lh5.googleusercontent.com/r5U9-nbJ8fh4W05KloAH_CV1GIRLhlrjqvMqFDSz2h9fbGAcHZ79wFG16zfYzsQ14u8j3CGx2Itry6RSG0DDc6Krfl7Dy55GNu6Wt2VGq4sb9u7cHGuHggrE9DJp4l-s3VVDaENVQzfMahxVNA"
+                        style="height: 400px; object-fit: cover" class="d-block w-100" alt="Slide 3" />
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -104,7 +104,8 @@
         <div class="row">
             <div class="col-md-2 col-sm-4 category-card">
                 <div class="card">
-                    <img src="conrod1.jpg" class="card-img-top" alt="Sparepart Standar" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXT5awy_J0Idgc4_agQpMvnfpAoo_Hg5zOow&s"
+                        class="card-img-top" alt="Sparepart Standar" />
                     <div class="card-img-overlay">
                         <i class="fas fa-tools icon-overlay"></i>
                     </div>
@@ -115,7 +116,8 @@
             </div>
             <div class="col-md-2 col-sm-4 category-card">
                 <div class="card">
-                    <img src="gambar_standar.jpg" class="card-img-top" alt="Sparepart Standar" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXT5awy_J0Idgc4_agQpMvnfpAoo_Hg5zOow&s"
+                        class="card-img-top" alt="Sparepart Standar" />
                     <div class="card-img-overlay">
                         <i class="fas fa-cogs icon-overlay"></i>
                     </div>
@@ -126,7 +128,8 @@
             </div>
             <div class="col-md-2 col-sm-4 category-card">
                 <div class="card">
-                    <img src="gambar_standar.jpg" class="card-img-top" alt="Sparepart Standar" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXT5awy_J0Idgc4_agQpMvnfpAoo_Hg5zOow&s"
+                        class="card-img-top" alt="Sparepart Standar" />
                     <div class="card-img-overlay">
                         <i class="fas fa-motorcycle icon-overlay"></i>
                     </div>
@@ -137,7 +140,8 @@
             </div>
             <div class="col-md-2 col-sm-4 category-card">
                 <div class="card">
-                    <img src="gambar_standar.jpg" class="card-img-top" alt="Sparepart Standar" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXT5awy_J0Idgc4_agQpMvnfpAoo_Hg5zOow&s"
+                        class="card-img-top" alt="Sparepart Standar" />
                     <div class="card-img-overlay">
                         <i class="fas fa-wrench icon-overlay"></i>
                     </div>
@@ -148,7 +152,8 @@
             </div>
             <div class="col-md-2 col-sm-4 category-card">
                 <div class="card">
-                    <img src="gambar_standar.jpg" class="card-img-top" alt="Sparepart Standar" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXT5awy_J0Idgc4_agQpMvnfpAoo_Hg5zOow&s"
+                        class="card-img-top" alt="Sparepart Standar" />
                     <div class="card-img-overlay">
                         <i class="fas fa-oil-can icon-overlay"></i>
                     </div>
@@ -159,7 +164,8 @@
             </div>
             <div class="col-md-2 col-sm-4 category-card">
                 <div class="card">
-                    <img src="gambar_standar.jpg" class="card-img-top" alt="Sparepart Standar" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXT5awy_J0Idgc4_agQpMvnfpAoo_Hg5zOow&s"
+                        class="card-img-top" alt="Sparepart Standar" />
                     <div class="card-img-overlay">
                         <i class="fas fa-tire icon-overlay"></i>
                     </div>
@@ -175,7 +181,8 @@
         <div class="row">
             <div class="col-md-4 col-sm-6 promo-card">
                 <div class="card">
-                    <img src="promo1.jpg" class="card-img-top" alt="Kolter" />
+                    <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2023/8/8/ad475d4d-33d9-4023-917d-fd66b0566a4c.jpg"
+                        class="card-img-top" alt="Kolter" />
                     <div class="card-img-overlay">
                         <i class="fas fa-wrench icon-overlay"></i>
                     </div>
@@ -186,7 +193,8 @@
             </div>
             <div class="col-md-4 col-sm-6 promo-card">
                 <div class="card">
-                    <img src="promo1.jpg" class="card-img-top" alt="Service Motor" />
+                    <img src="https://planetban.com/media/wysiwyg/swatches/image_article/2211-a-servisberkala.jpg"
+                        class="card-img-top" alt="Service Motor" />
                     <div class="card-img-overlay">
                         <i class="fas fa-tools icon-overlay"></i>
                     </div>
@@ -197,7 +205,8 @@
             </div>
             <div class="col-md-4 col-sm-6 promo-card">
                 <div class="card">
-                    <img src="promo1.jpg" class="card-img-top" alt="Tyre Changer" />
+                    <img src="https://media.monotaro.id/mid01/full/Otomotif%2C%20Truk%20%26%20Sepeda%20Motor/Produk%20Transportasi%2C%20Perkakas%20Garasi/Perkakas%20Garasi/Tire%20Changer/BRIGHT%20Motorcycle%20Tyre%20Changer/nkP105471848-1.jpg"
+                        class="card-img-top" alt="Tyre Changer" />
                     <div class="card-img-overlay">
                         <i class="fas fa-exchange-alt icon-overlay"></i>
                     </div>
@@ -208,7 +217,8 @@
             </div>
             <div class="col-md-4 col-sm-6 promo-card">
                 <div class="card">
-                    <img src="promo1.jpg" class="card-img-top" alt="Teknik Bubut" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfAkKQ-r2L_LjTGbzs0HNjNP5fQkrKzwReYw&s"
+                        class="card-img-top" alt="Teknik Bubut" />
                     <div class="card-img-overlay">
                         <i class="fas fa-cogs icon-overlay"></i>
                     </div>
@@ -219,7 +229,8 @@
             </div>
             <div class="col-md-4 col-sm-6 promo-card">
                 <div class="card">
-                    <img src="promo1.jpg" class="card-img-top" alt="Las" />
+                    <img src="https://imgx.gridoto.com/crop/0x0:0x0/700x500/photo/2023/08/29/las-rangkajpg-20230829010606.jpg"
+                        class="card-img-top" alt="Las" />
                     <div class="card-img-overlay">
                         <i class="fas fa-welding-torch icon-overlay"></i>
                     </div>
@@ -230,7 +241,8 @@
             </div>
             <div class="col-md-4 col-sm-6 promo-card">
                 <div class="card">
-                    <img src="promo1.jpg" class="card-img-top" alt="Turun Mesin" />
+                    <img src="https://imgx.gridoto.com/crop/0x0:0x0/700x465/photo/2020/12/07/3229237043.jpg"
+                        class="card-img-top" alt="Turun Mesin" />
                     <div class="card-img-overlay">
                         <i class="fas fa-engine icon-overlay"></i>
                     </div>
@@ -247,7 +259,8 @@
         <div class="row">
             <div class="col-md-2 col-sm-4">
                 <div class="card">
-                    <img src="partner1.jpg" class="card-img-top" alt="Partner 1" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/2552px-Honda_Logo.svg.png"
+                        class="card-img-top" alt="Partner 1" />
                     <div class="card-img-overlay">
                         <i class="fas fa-handshake icon-overlay"></i>
                     </div>
@@ -255,7 +268,8 @@
             </div>
             <div class="col-md-2 col-sm-4">
                 <div class="card">
-                    <img src="partner2.jpg" class="card-img-top" alt="Partner 2" />
+                    <img src="https://i.pinimg.com/736x/1d/3c/6b/1d3c6b96a858c136efea4737945562cd.jpg"
+                        class="card-img-top" alt="Partner 2" />
                     <div class="card-img-overlay">
                         <i class="fas fa-handshake icon-overlay"></i>
                     </div>
