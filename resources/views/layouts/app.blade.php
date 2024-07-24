@@ -12,15 +12,6 @@
         @include('includes.footer')
     </div>
     @include('includes.scripts')
-
-    <script>
-        window.embeddedChatbotConfig = {
-            chatbotId: "R_Z9Zb3t8jozAhR80AiUV",
-            domain: "www.chatbase.co"
-        }
-    </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="R_Z9Zb3t8jozAhR80AiUV" domain="www.chatbase.co" defer>
-    </script>
 </body>
 
 </html>
