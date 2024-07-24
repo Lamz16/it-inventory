@@ -81,10 +81,10 @@
                                         </div> --}}
                                     <span class="progress-description">
                                         {{-- There are <b>{{ $totalStock }}</b> goods in the warehouse <br> --}}
-                                        Total <b>{{ $totalStock }}</b> stock barang di gudang <br>
+                                        {{-- Total <b>{{ $totalStock }}</b> stock barang di gudang <br> --}}
                                         {{-- There are <b>{{ $totalLowStock }}</b> goods that are running low in the
                                         warehouse --}}
-                                        Ada <b>{{ $totalLowStock }}</b> barang yang tidak ada di gudang
+                                        Ada <b>{{ $totalLowStock }}</b> barang yang hampir habis di gudang
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->

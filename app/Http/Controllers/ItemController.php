@@ -50,8 +50,13 @@ class ItemController extends Controller
         $data = $request->all();
         $data['stock'] = 0;
 
-        $file = $request->file('thumbnail')->store('images', 'public');
-        $data['thumbnail'] = 'storage/' . $file;
+        // $file = $request->file('thumbnail')->store('images', 'public');
+        // $data['thumbnail'] = 'storage/' . $file;
+
+        $file = $request->file('thumbnail');
+        $file_name = time() . '_' . $file->extension();
+        $file->move('images', $file_name);
+        $data['thumbnail'] = 'images/' . $file_name;
 
         Item::create($data);
 

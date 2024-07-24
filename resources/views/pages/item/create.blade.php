@@ -17,7 +17,8 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="thumbnail">Thumbnail</label>
-                                <input type="file" class="form-control-file" id="thumbnail" name="thumbnail" />
+                                <input type="file" class="form-control-file" id="thumbnail" name="thumbnail"
+                                    required />
                             </div>
                         </div>
                         <div class="col-sm-6">

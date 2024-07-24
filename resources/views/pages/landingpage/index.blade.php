@@ -61,6 +61,10 @@
             height: 200px;
             /* Atur sesuai dengan kebutuhan Anda */
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
