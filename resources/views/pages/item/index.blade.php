@@ -45,10 +45,10 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                {{-- @if ($item->thumbnail)
-                                                    <img src="{{ asset($item->thumbnail) }}" alt="thumbnail"
+                                                @if ($item->thumbnail)
+                                                    <img src="{{ url($item->thumbnail) }}" alt="thumbnail"
                                                         class="img-thumbnail" width="50" />
-                                                @endif --}}
+                                                @endif
 
                                                 {{ $item->name }}
 

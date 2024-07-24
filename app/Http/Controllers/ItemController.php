@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Item;
 use App\Models\ItemHistory;
@@ -15,10 +16,13 @@ class ItemController extends Controller
     public function index()
     {
         $list_pcs = ['pcs', 'box', 'pack', 'set', 'dozen', 'meter', 'liter', 'gram', 'kilogram', 'ton', 'other'];
+        $list_category = ['Sparepart Standar', 'Sparepart Racing', 'Oli', 'Apparel', 'Accessories', 'Other'];
+
         $items = Item::all();
 
         return view('pages.item.index', [
             'list_pcs' => $list_pcs,
+            'list_category' => $list_category,
 
             'items' => $items,
         ]);
@@ -46,12 +50,8 @@ class ItemController extends Controller
         $data = $request->all();
         $data['stock'] = 0;
 
-        if ($request->hasFile('thumbnail')) {
-            $thumbnail_name = time() . '.' . $request->file('thumbnail')->extension();
-            $uploaded_thumbnail = $request->file('thumbnail')->move(public_path('images'), $thumbnail_name);
-            $thumbnail = 'images/' . $thumbnail_name;
-            $data['thumbnail'] = $thumbnail;
-        }
+        $file = $request->file('thumbnail')->store('images', 'public');
+        $data['thumbnail'] = 'storage/' . $file;
 
         Item::create($data);
 
@@ -63,21 +63,10 @@ class ItemController extends Controller
         $data = $request->all();
         $item = Item::find($id);
 
-        if ($request->hasFile('thumbnail')) {
-            // Define the upload path
-            $uploadPath = public_path('images');
-
-            // Check if the directory exists, if not, create it
-            if (!file_exists($uploadPath)) {
-                mkdir($uploadPath, 0755, true);
-            }
-
-            // Generate a unique name for the thumbnail
-            $thumbnail_name = time() . '.' . $request->file('thumbnail')->extension();
-            // Move the uploaded file to the public/images directory
-            $uploaded_thumbnail = $request->file('thumbnail')->move($uploadPath, $thumbnail_name);
-            // Set the thumbnail path to be saved in the database
-            $data['thumbnail'] = 'images/' . $thumbnail_name;
+        //   change using storage
+        if ($request->file('thumbnail')) {
+            $file = $request->file('thumbnail')->store('images', 'public');
+            $data['thumbnail'] = 'storage/' . $file;
         }
 
         // Update the item with the new data

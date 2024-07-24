@@ -1,9 +1,9 @@
 <!-- Modal -->
 <div class="modal fade" id="formUpdate{{ $item->id }}" tabindex="-1" role="dialog"
     aria-labelledby="formUpdate{{ $item->id }}Label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('item.update', $item->id) }}" method="POST">
+            <form action="{{ route('item.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -38,6 +38,20 @@
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" placeholder="Input Name"
                                     name="name" required value="{{ $item->name }}" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="category">Ketegori</label>
+                                <select name="category" id="category" class="form-control" required>
+                                    <option value="">-- Kategori --</option>
+                                    @foreach ($list_category as $i)
+                                        <option value="{{ $i }}"
+                                            {{ $i == $item->category ? 'selected' : '' }}>
+                                            {{ $i }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -80,9 +94,7 @@
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <textarea type="text" class="form-control" id="description" placeholder="Input description" name="description"
-                                    rows="3">
-                                {{ $item->description }}
-                                </textarea>
+                                    rows="3">{{ $item->description }}</textarea>
                             </div>
                         </div>
                     </div>

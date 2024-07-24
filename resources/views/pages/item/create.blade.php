@@ -2,7 +2,7 @@
 <div class="modal fade" id="formCreate" tabindex="-1" role="dialog" aria-labelledby="formCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form action="{{ route('item.store') }}" method="POST">
+            <form action="{{ route('item.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
@@ -14,6 +14,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="thumbnail">Thumbnail</label>
+                                <input type="file" class="form-control-file" id="thumbnail" name="thumbnail" />
+                            </div>
+                        </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="name">Code</label>
@@ -26,6 +32,19 @@
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" placeholder="Input Name"
                                     name="name" required />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="category">Ketegori</label>
+                                <select name="category" id="category" class="form-control" required>
+                                    <option value="">-- Kategori --</option>
+                                    @foreach ($list_category as $i)
+                                        <option value="{{ $i }}">
+                                            {{ $i }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-sm-6">

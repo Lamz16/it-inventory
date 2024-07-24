@@ -12,12 +12,20 @@ class LandingpageController extends Controller
         return view('pages.landingpage.index', []);
     }
 
-    public function product()
+    public function product(Request $request)
     {
-        $items = Item::all();
+        // check query params category
+        if ($request->query('category')) {
+            $items = Item::where('category', $request->query('category'))->get();
+        } else {
+            $items = Item::all();
+        }
+
+        $list_category = ['Sparepart Standar', 'Sparepart Racing', 'Oli', 'Apparel', 'Accessories', 'Other'];
 
         return view('pages.landingpage.product', [
             'items' => $items,
+            'list_category' => $list_category,
         ]);
     }
 

@@ -48,47 +48,18 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <i class="fas fa-th-large"></i>
+                            <a class="nav-link active" href="/product">
+                                {{-- <i class="fas fa-th-large"></i> --}}
                                 Semua Kategori
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-tools"></i>
-                                Sparepart Standar
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-cogs"></i>
-                                Sparepart Variasi
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-motorcycle"></i>
-                                Bodypart Motor
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-wrench"></i>
-                                Aksesori Motor
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-oil-can"></i>
-                                Pelumas Motor
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-tire"></i>
-                                Ban/Velg Motor
-                            </a>
-                        </li>
+                        @foreach ($list_category as $item)
+                            <li class="nav-item">
+                                <a class="nav-link" href="/product?category={{ $item }}">
+                                    {{ $item }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </nav>
@@ -104,8 +75,7 @@
                     @foreach ($items as $item)
                         <div class="col-md-4 col-sm-6 mb-4">
                             <div class="card">
-                                <img src="https://static.vecteezy.com/system/resources/previews/006/945/499/non_2x/illustration-of-touring-man-riding-a-motorbike-free-vector.jpg"
-                                    class="card-img-top" alt="Produk 1" />
+                                <img src="{{ url($item->thumbnail) }}" class="card-img-top" alt="Produk 1" />
                                 <div class="card-body">
                                     <p class="text-muted mb-0">{{ $item->code }}</p>
                                     <h5 class="card-title">{{ $item->name }}</h5>
