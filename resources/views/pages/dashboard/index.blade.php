@@ -106,6 +106,7 @@
                                         <th>No</th>
                                         <th>Date</th>
                                         <th>Type</th>
+                                        <th>Product Name</th>
                                         <th>Quantity Sebelum</th>
                                         <th>Quantity</th>
                                         <th>Quantity Sesudah</th>
@@ -118,6 +119,7 @@
                                             <td>{{ $i }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->type }}</td>
+                                            <td>{{ $item->item->name ?? '-' }}</td>
                                             <td>{{ $item->quantity_before }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ $item->quantity_after }}</td>

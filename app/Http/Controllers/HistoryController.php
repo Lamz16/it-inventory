@@ -13,7 +13,10 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        $items = ItemHistory::orderBy('created_at', 'desc')->get();
+           $items = ItemHistory::join('items', 'item_histories.item_id', '=', 'items.id')
+                 ->select('item_histories.*', 'items.name')
+                 ->orderBy('item_histories.created_at', 'desc')
+                 ->get();
 
         return view('pages.history.index', [
             'items' => $items,
